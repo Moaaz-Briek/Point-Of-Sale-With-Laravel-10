@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.auth.login');
+//Auth Routes
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth:admin'], function (){
+    Route::get( 'dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+});
+
+//Guest Routes
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'guest:admin'], function (){
+    Route::get( '/login', [LoginController::class, 'index']);
+    Route::post( '/login', [LoginController::class, 'login'])->name('admin.login');
 });
