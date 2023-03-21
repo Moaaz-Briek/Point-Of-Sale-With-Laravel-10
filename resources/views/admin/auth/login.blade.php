@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{asset('assets/admin/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="{{asset('assets/admin/fonts/SansPro/SansPro.min.css')}}">
+    <!-- Page RTL For Arabic -->
+    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap_rtl-v4.2.1/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap_rtl-v4.2.1/custom_rtl.css')}}">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box ">
@@ -25,22 +28,33 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">تسجيل الدخول</p>
 
-      <form action="">
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="username">
+      <form action="{{route('admin.login')}}" method="POST">
+        @csrf
+        <div class="input-group mb-2">
+          <input type="text" name="username" class="form-control" placeholder="username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <div class="mb-2 mt-0">
+              @error('username')
+                <span class="text-danger">{{$message}}</span>
+              @enderror
+          </div>
+        <div class="input-group mb-2">
+          <input type="password" name="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
             </div>
           </div>
+        </div>
+        <div class="mb-2 mt-0">
+            @error('password')
+                <span class="text-danger">{{$message}}</span>
+            @enderror
         </div>
         <div class="row">
             <?php /*
