@@ -17,10 +17,11 @@ use App\Http\Controllers\Admin\LoginController;
 //Auth Routes
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth:admin'], function (){
     Route::get( 'dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get( 'logout', [DashboardController::class, 'logout'])->name('admin.logout');
 });
 
 //Guest Routes
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'guest:admin'], function (){
-    Route::get( '/login', [LoginController::class, 'index']);
+    Route::get( '/login', [LoginController::class, 'index'])->name('admin.home');
     Route::post( '/login', [LoginController::class, 'login'])->name('admin.login');
 });
