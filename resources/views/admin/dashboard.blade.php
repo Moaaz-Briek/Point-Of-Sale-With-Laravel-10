@@ -6,7 +6,7 @@
     الرئيسية
 @endsection
 @section('contentHeaderLink')
-    <a href="{{route('admin.dashboard')}}">Link</a>
+    <a href="{{route('admin.dashboard')}}">الرئيسية</a>
 @endsection
 @section('contentHeaderActive')
     عرض
