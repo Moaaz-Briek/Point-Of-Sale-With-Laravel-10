@@ -31,7 +31,7 @@
       <form action="{{route('admin.login')}}" method="POST">
         @csrf
         <div class="input-group mb-2">
-          <input type="text" name="username" class="form-control" placeholder="username">
+          <input type="text" name="username" class="form-control" placeholder="اسم المستخدم">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -44,7 +44,7 @@
               @enderror
           </div>
         <div class="input-group mb-2">
-          <input type="password" name="password" class="form-control" placeholder="Password">
+          <input type="password" name="password" class="form-control" placeholder="الرقم السرى">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -68,7 +68,7 @@
           </div> */ ?>
           <!-- /.col -->
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">تسجيل الدخول</button>
           </div>
           <!-- /.col -->
         </div>
