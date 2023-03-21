@@ -9,8 +9,7 @@ class AdminPanelSettings extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'system_email',
+        'system_name',
         'photo',
         'status',
         'general_alert',
