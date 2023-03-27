@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminPanelSettingsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +17,15 @@ use App\Http\Controllers\Admin\LoginController;
 */
 
 //Auth Routes
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth:admin'], function (){
-    Route::get( 'dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::get( 'logout', [DashboardController::class, 'logout'])->name('admin.logout');
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
+    Route::get( '/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get( '/logout', [LoginController::class, 'logout'])->name('admin.logout');
+    Route::get( '/adminPanelSetting/index', [AdminPanelSettingsController::class, 'index'])->name('admin.adminPanelSetting.index');
+
 });
 
 //Guest Routes
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'guest:admin'], function (){
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'guest:admin'], function () {
     Route::get( '/login', [LoginController::class, 'index'])->name('admin.home');
     Route::post( '/login', [LoginController::class, 'login'])->name('admin.login');
 });
