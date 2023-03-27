@@ -9,10 +9,4 @@ class DashboardController extends Controller
     {
         return view('admin.dashboard');
     }
-
-    public function logout()
-    {
-        auth()->logout();
-        return redirect()->route('admin.home');
-    }
 }
