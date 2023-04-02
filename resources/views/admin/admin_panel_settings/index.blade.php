@@ -79,14 +79,6 @@
                                     @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <th></th>
-                                <td>{{$data['general_alert']}}</td>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <td>{{$data['general_alert']}}</td>
-                            </tr>
                         </table>
                     @else
                         <div class="alert alert-danger">
